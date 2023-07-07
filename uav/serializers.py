@@ -19,4 +19,13 @@ class UavSerializer(FixSerializer):
 
     class Meta:
         model = Uav
-        exclude = [] 
+        exclude = []
+
+# ---------------------------------
+# ReservationSerializer
+# ---------------------------------
+class ReservationSerializer(FixSerializer): 
+
+    class Meta:
+        model = Reservation
+        exclude = []      
