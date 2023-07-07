@@ -10,3 +10,12 @@ from .serializers import (
 # ---------------------------------
 class FixView(ModelViewSet):
     pass
+
+
+# ---------------------------------
+# UavView
+# --------------------------------- 
+
+class UavView(FixView):
+    queryset = Uav.objects.filter()
+    serializer_class = UavSerializer 
