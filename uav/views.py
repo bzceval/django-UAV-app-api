@@ -18,4 +18,11 @@ class FixView(ModelViewSet):
 
 class UavView(FixView):
     queryset = Uav.objects.filter()
-    serializer_class = UavSerializer 
+    serializer_class = UavSerializer
+
+# ---------------------------------
+# ReservationView
+# --------------------------------- 
+class ReservationView(FixView): 
+    queryset = Reservation.objects.all()
+    serializer_class = ReservationSerializer
