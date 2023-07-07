@@ -13,3 +13,12 @@ class UserView(ModelViewSet):
     queryset = User.objects.filter(is_staff=False)
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
+
+# -------------------------------
+# UserView
+# -------------------------------
+from rest_framework.viewsets import ModelViewSet 
+
+class UserView(ModelViewSet):
+    queryset = User.objects.filter(is_superuser=False)
+    serializer_class = UserSerializer    
