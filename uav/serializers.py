@@ -11,3 +11,12 @@ from .models import (
 # ---------------------------------
 class FixSerializer(serializers.ModelSerializer):
     pass
+
+# ---------------------------------
+# UavSerializer
+# ---------------------------------
+class UavSerializer(FixSerializer):
+
+    class Meta:
+        model = Uav
+        exclude = [] 
