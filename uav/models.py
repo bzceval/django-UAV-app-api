@@ -32,3 +32,14 @@ class Uav(FixModel):
 
     def __str__(self):
         return f'{self.brand} {self.model} # {self.serial_number}'
+    
+# ---------------------------------
+# Reservation
+# ---------------------------------
+class Reservation(FixModel):
+    uav = models.ForeignKey(Uav, on_delete=models.CASCADE)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    
+    def __str__(self):
+        return f"[{self.user}] - {self.uav} - {self.start_date} - {self.end_date}"    
