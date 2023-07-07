@@ -20,6 +20,10 @@ class UserCreateView(ModelViewSet):
         from rest_framework.authtoken.models import Token
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+        # Defaults:
+        serializer.validated_data['is_superuser'] = False
+        serializer.validated_data['is_staff'] = False
+        serializer.validated_data['is_active'] = True
          # <--- User.save() & Token.create() --->
         user = serializer.save()
         data = serializer.data
