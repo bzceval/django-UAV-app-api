@@ -18,7 +18,12 @@ class UserSerializer(serializers.ModelSerializer):
     )
     class Meta: 
         model = User
-        exclude = []
+        exclude = [
+            "last_login",
+            "date_joined",
+            "groups",
+            "user_permissions",
+        ]
 
     def validate(self, attrs):
         if attrs.get('password', False):
