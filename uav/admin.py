@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Uav, Reservation
 
-# Register your models here.
+admin.site.register(Uav)
+admin.site.register(Reservation)
