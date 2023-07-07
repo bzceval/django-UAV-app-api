@@ -14,6 +14,21 @@ class UserCreateView(ModelViewSet):
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
 
+    def create(self, request, *args, **kwargs):
+        from rest_framework import status
+        from rest_framework.response import Response
+        from rest_framework.authtoken.models import Token
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+         # <--- User.save() & Token.create() --->
+        user = serializer.save()
+        data = serializer.data
+        token = Token.objects.create(user=user)
+        data['key'] = token.key
+        # </--->
+        headers = self.get_success_headers(serializer.data)
+        return Response(data, status=status.HTTP_201_CREATED, headers=headers)
+
 # -------------------------------
 # UserView
 # -------------------------------
