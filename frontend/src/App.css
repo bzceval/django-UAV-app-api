@@ -10,11 +10,15 @@ body {
   padding: 0.3rem 1.3rem;
   border-radius: 5px !important;
   color: #e7dfb2;
+  text-decoration: none !important;
 }
 .button:hover {
   background-color: #e7dfb2 !important;
   color: #191919 !important;
   transition: 0.5s all;
+}
+a.active {
+  text-decoration: underline;
 }
 .card {
   overflow: hidden !important;
@@ -58,4 +62,4 @@ input {
 }
 input::placeholder {
   color: #e7dfb256 !important;
-} 
+}

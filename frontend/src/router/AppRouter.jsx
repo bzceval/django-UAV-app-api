@@ -4,6 +4,8 @@ import Navbar from "../components/Navbar";
 import UAV from "../pages/UAV";
 import UAVDetail from "../pages/UAVDetail";
 import FindUAV from "../pages/FindUAV";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 const AppRouter = () => {
   return (
@@ -13,6 +15,8 @@ const AppRouter = () => {
         <Route index element={<UAV />} />
         <Route path="/detail" element={<UAVDetail />} />
         <Route path="/search-uav" element={<FindUAV />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   );

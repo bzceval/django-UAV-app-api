@@ -2,7 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import uav from "../assets/uav.png";
 const Navbar = () => {
-  const currentUser = "Busra";
+  const currentUser = false;
   return (
     <header className="py-4">
       <div className="container">
@@ -25,9 +25,13 @@ const Navbar = () => {
                 <p className="button">Logout</p>
               </div>
             ) : (
-              <div className="text-end">
-                <p className="button">Login</p>
-                <p className="button">Sign-up</p>
+              <div className="d-flex gap-3">
+                <Link to="/login" className="button">
+                  Login
+                </Link>
+                <Link to="/register" className="button">
+                  Register
+                </Link>
               </div>
             )}
           </div>
