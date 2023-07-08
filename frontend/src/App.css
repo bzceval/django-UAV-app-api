@@ -47,3 +47,15 @@ body {
   transform: translateX(0%) !important;
   transition: transform 0.7s ease-in-out !important;
 }
+.search-container {
+  background-color: #333c32 !important;
+}
+input {
+  background-color: #434639 !important;
+  color: #e7dfb2 !important;
+  border: none !important;
+  height: 46px !important;
+}
+input::placeholder {
+  color: #e7dfb256 !important;
+} 
