@@ -43,3 +43,11 @@ class Reservation(FixModel):
     
     def __str__(self):
         return f"[{self.user}] - {self.uav} - {self.start_date} - {self.end_date}"    
+    
+    class Meta:
+        # https://docs.djangoproject.com/en/4.2/ref/models/constraints/
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user', 'start_date', 'end_date'], name='user_rent_date'
+            )
+        ]
