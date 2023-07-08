@@ -5,10 +5,11 @@ body {
   color: #e7dfb2 !important;
 }
 .button-lr {
-  background-color: #e9dfa5 !important; 
+  background-color: #333c32 !important; 
   transition: 0.5s all; 
   width: 100% !important;
   transition: 0.5s all;
+  color: #e7dfb2 !important;
 }
 .button-lr:hover {
   background-color: #817a53 !important;
