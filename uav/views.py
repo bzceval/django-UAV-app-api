@@ -37,3 +37,9 @@ class ReservationView(FixView):
     queryset = Reservation.objects.all()
     serializer_class = ReservationSerializer
     permission_classes = [IsStaffOrOnlyOwnerObjects]
+
+    def get_queryset(self):
+        if self.request.user.is_staff:
+            return super().get_queryset() # If user.is_staff then show default data. 
+        else:
+            return Reservation.objects.filter(user=self.request.user) # Only the user can see her/his private objects.
