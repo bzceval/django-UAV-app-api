@@ -17,9 +17,17 @@ class FixView(ModelViewSet):
 # --------------------------------- 
 from .permissions import IsStaffOrReadOnly
 class UavView(FixView):
-    queryset = Uav.objects.filter()
+    queryset = Uav.objects.filter(availability=True)
     serializer_class = UavSerializer
     permission_classes = [IsStaffOrReadOnly]
+
+    def get_queryset(self):
+        if self.request.user.is_staff:
+            queryset = Uav.objects.all() # If user.is_staff show all data.
+        else:
+            queryset = super().get_queryset() # Show default data.
+
+        return queryset
 
 # ---------------------------------
 # ReservationView
