@@ -1,4 +1,5 @@
 from rest_framework.viewsets import ModelViewSet
+from django.db.models import Q
 
 from .serializers import (
     Uav, UavSerializer,
@@ -26,6 +27,20 @@ class UavView(FixView):
             queryset = Uav.objects.all() # If user.is_staff show all data.
         else:
             queryset = super().get_queryset() # Show default data.
+
+        # Filter by date:
+        # https://localhost/api/uav/?from=2023-01-20&to=2023-01-25
+        start = self.request.query_params.get('from', None)
+        end = self.request.query_params.get('to', None)
+
+        if start and end: 
+            # To use AND and OR we can use the Q parameter:
+            # https://docs.djangoproject.com/en/4.2/topics/db/queries/#complex-lookups-with-q-objects
+            not_available_car_ids = Reservation.objects.filter(
+                Q(start_date__gte = start, start_date__lte = end) | Q(end_date__gte = start, end_date__lte = end)
+            ).values_list('car_id', flat=True)
+
+            queryset = queryset.exclude(id__in=not_available_car_ids)
 
         return queryset
 
