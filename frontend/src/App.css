@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@100;200;300;400;500;600&display=swap");
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #191919 !important;
+  color: #e7dfb2 !important;
+}
+.button {
+  border: 1px solid #e7dfb2 !important;
+  background: none !important;
+  padding: .3rem 1.3rem;
+  border-radius: 5px !important;
+  color: #e7dfb2;
+}
+.button:hover {
+  background-color: #e7dfb2 !important;
+  color: #191919 !important;
+  transition: .5s all;
+} 
