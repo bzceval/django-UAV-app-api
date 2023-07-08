@@ -30,6 +30,8 @@ class UavSerializer(FixSerializer):
 # ReservationSerializer
 # ---------------------------------
 class ReservationSerializer(FixSerializer): 
+    uav = serializers.StringRelatedField()
+    uav_id = serializers.IntegerField()
 
     class Meta:
         model = Reservation
