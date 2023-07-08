@@ -4,6 +4,18 @@ body {
   background-color: #191919 !important;
   color: #e7dfb2 !important;
 }
+.button-lr {
+  background-color: #e9dfa5 !important; 
+  transition: 0.5s all; 
+  width: 100% !important;
+  transition: 0.5s all;
+}
+.button-lr:hover {
+  background-color: #817a53 !important;
+  color: #191919 !important;
+  transition: 0.5s all;
+  width: 100% !important;
+}
 .button {
   border: 1px solid #e7dfb2 !important;
   background: none !important;
@@ -53,6 +65,15 @@ a.active {
 }
 .search-container {
   background-color: #333c32 !important;
+}
+.shadow-lg input {
+  width: 100% !important;
+  background-color: #91886f12 !important;
+  border-radius: 3px !important;
+  height: 2.5rem !important;
+}
+.shadow-lg input:focus {
+  border: none !important;
 }
 input {
   background-color: #434639 !important;
