@@ -32,6 +32,8 @@ class UavView(FixView):
 # ---------------------------------
 # ReservationView
 # --------------------------------- 
+from .permissions import IsStaffOrOnlyOwnerObjects
 class ReservationView(FixView): 
     queryset = Reservation.objects.all()
     serializer_class = ReservationSerializer
+    permission_classes = [IsStaffOrOnlyOwnerObjects]
