@@ -34,7 +34,7 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 # --------------------------------------------------------
-# Swagger + Redoc + Debug
+# Swagger + Redoc
 # --------------------------------------------------------
 from django.urls import re_path
 from rest_framework import permissions
