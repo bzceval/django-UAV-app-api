@@ -15,10 +15,11 @@ class FixView(ModelViewSet):
 # ---------------------------------
 # UavView
 # --------------------------------- 
-
+from .permissions import IsStaffOrReadOnly
 class UavView(FixView):
     queryset = Uav.objects.filter()
     serializer_class = UavSerializer
+    permission_classes = [IsStaffOrReadOnly]
 
 # ---------------------------------
 # ReservationView
