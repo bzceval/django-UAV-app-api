@@ -15,3 +15,13 @@ class IsStaffOrReadOnly(BasePermission):
         # else:
         #     return False
         return (request.method in SAFE_METHODS or request.user.is_staff)
+
+
+# Staff can fully manage, but others can only manage their own objects.
+class IsStaffOrOnlyOwnerObjects(BasePermission):
+    
+    def has_object_permission(self, request, view, obj):
+        return (
+            request.user.is_staff
+            or request.user.id == obj.user.id
+        )
