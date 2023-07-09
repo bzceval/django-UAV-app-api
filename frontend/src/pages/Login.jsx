@@ -15,7 +15,7 @@ const Login = () => {
       password: data.get("password"),
       username: data.get("username"),
     };
-    login(userInfo, navigate);
+    login(userInfo, navigate('/profile'));
   };
   return (
     <div className="container my-5">

@@ -60,6 +60,8 @@ Rent a uav app enables customers to rent uavs between start and end date of thei
 - SWAGGER LINK : http://127.0.0.1:8000/swagger
 - REDOC LINK : http://127.0.0.1:8000/redoc
 - .ENV : https://drive.google.com/file/d/11992RgQEomkGo-30F2eSuFjpcg-5JvYU/view?usp=sharing
+- DockerizeRepo:frontend: https://hub.docker.com/r/busraassss/frontend
+- DockerizeRepo:backend: https://hub.docker.com/r/busraassss/backend
 
 <br><br>
 

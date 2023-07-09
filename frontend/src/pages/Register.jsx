@@ -26,11 +26,7 @@ const Register = () => {
     <div className="container my-5">
       <div className="row">
         <div className="col-12 col-md-5 d-flex justify-content-center align-items-center">
-          <img
-            src={RegisterImg}
-            alt="UVA Register"
-            width={500} 
-          />
+          <img src={RegisterImg} alt="UVA Register" width={500} />
         </div>
         <Formik
           initialValues={{
@@ -45,7 +41,7 @@ const Register = () => {
             actions.resetForm();
             actions.setSubmitting(false);
             console.log(values);
-            register({ values }, navigate);
+            register({ values }, navigate("/"));
           }}
         >
           {({ values, handleChange, errors, touched, handleBlur }) => (
