@@ -11,7 +11,7 @@ const { Provider } = AuthContext;
 
 const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  console.log("satet", state);
+  console.log("state", state);
   useEffect(() => {
     const currentUser = JSON.parse(localStorage.getItem("data")) || "";
     if (currentUser.key || currentUser === "") {
@@ -25,47 +25,48 @@ const AuthProvider = ({ children }) => {
     dispatch("START");
     try {
       const { data } = await axios.post(
-        `${BASE_URL}users/auth/login/`,
+        `${BASE_URL}user/auth/login/`,
         userInfo
       );
       console.log(data);
       dispatch({ type: "LOGIN_SUCCESS", payload: data });
       localStorage.setItem("data", JSON.stringify(data));
-    //   toastSuccessNotify("Login performed");
+      //   toastSuccessNotify("Login performed");
       navigate("/dashboard");
     } catch (err) {
       dispatch({ type: "FAIL" });
-    //   toastErrorNotify("Login can not be performed");
+      //   toastErrorNotify("Login can not be performed");
     }
   };
 
   const logout = async (navigate) => {
     dispatch("START");
     try {
-      await axios.post(`${BASE_URL}users/auth/logout/`);
+      await axios.post(`${BASE_URL}user/auth/logout/`);
       dispatch({ type: "LOGOUT" });
       localStorage.removeItem("data");
 
-    //   toastSuccessNotify("Logout performed");
+      //   toastSuccessNotify("Logout performed");
       navigate("/");
     } catch (err) {
       dispatch({ type: "FAIL" });
-    //   toastErrorNotify("Logout can not be performed");
+      //   toastErrorNotify("Logout can not be performed");
     }
   };
 
   const register = async (userInfo, navigate) => {
+    console.log("USERINFO", userInfo);
     dispatch("START");
     try {
-      const { data } = await axios.post(`${BASE_URL}users/register/`, userInfo);
+      const { data } = await axios.post(`${BASE_URL}user/create/`, userInfo);
       dispatch({ type: "REGISTER_SUCCESS", payload: data });
       localStorage.setItem("data", JSON.stringify(data));
 
-    //   toastSuccessNotify("Register performed");
-      navigate("/dashboard");
+      //   toastSuccessNotify("Register performed");
+      navigate("/");
     } catch (err) {
       dispatch({ type: "FAIL" });
-    //   toastErrorNotify("Register can not be performed");
+      //   toastErrorNotify("Register can not be performed");
     }
   };
 
