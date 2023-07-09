@@ -41,7 +41,7 @@ const Register = () => {
             actions.resetForm();
             actions.setSubmitting(false);
             console.log(values);
-            register({ values }, navigate("/"));
+            register({ values }, navigate);
           }}
         >
           {({ values, handleChange, errors, touched, handleBlur }) => (
