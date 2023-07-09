@@ -1,13 +1,11 @@
-FROM python:3.10.8-slim-bullseye
+FROM python:3.9.16-bullseye
+WORKDIR /backend
+
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-WORKDIR /backend
-
 COPY . .
-
 RUN pip install -r requirements.txt
+EXPOSE 8000
 
-CMD python manage.py runserver 0.0.0.0:8000
-# Optional:
-# EXPOSE 8000
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

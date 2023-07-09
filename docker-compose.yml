@@ -8,7 +8,6 @@ services:
     build: ./frontend # The folder to be dockerized (dockerfile)
     ports: # external/internal port numbers
       - 3000:3000
-      - 80:3000
     restart: on-failure # rerun on error.
     depends_on: # run the following first
       - backend # defined below.
@@ -19,7 +18,26 @@ services:
     build: ./backend # The folder to be dockerized (dockerfile)
     ports: # external/internal port numbers
       - 8000:8000
+    env_file:
+      - ./backend/.env  
+    depends_on:
+      - db  
     restart: on-failure # rerun on error.
     volumes: # physical ways (external:internal)
+      - ./backend:/backend
       - $PWD/backend/db.sqlite3:/backend/db.sqlite3
-      - db_data:/var/lib/postgresql/data
+  
+  db:
+    image: busraassss/postgres:13-alpine
+    volumes:
+      - pg_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=cvl2727.
+      - POSTGRES_DB=uav_app
+volumes:
+  pg_data:
+
+# $ docker compose up
+# $ docker compose up -d --build
+# $ docker compose down
