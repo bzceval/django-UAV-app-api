@@ -63,6 +63,18 @@ Rent a uav app enables customers to rent uavs between start and end date of thei
 
 <br><br>
 
+## Authorized Endpoint Path
+
+- Customers
+
+  - /user/create
+  - /user/auth/login
+  - /user/auth/logout
+  - /user/api/uav (only for available uavs)
+
+- Other Users
+  - all path
+
 ## BackEnd Tasks
 
 - Customers (normal user);
