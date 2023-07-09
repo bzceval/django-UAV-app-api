@@ -5,8 +5,8 @@ body {
   color: #e7dfb2 !important;
 }
 .button-lr {
-  background-color: #333c32 !important; 
-  transition: 0.5s all; 
+  background-color: #333c32 !important;
+  transition: 0.5s all;
   width: 100% !important;
   transition: 0.5s all;
   color: #e7dfb2 !important;
@@ -76,7 +76,7 @@ a.active {
 .shadow-lg input:focus {
   border: none !important;
 }
-.form-check input{
+.form-check input {
   width: 1.2rem !important;
   background-color: #817a53 !important;
   /* border-radius: 0px !important; */
@@ -90,4 +90,15 @@ input {
 }
 input::placeholder {
   color: #e7dfb256 !important;
+}
+footer {
+  border-color: #e7dfb2 !important;
+  color: #e7dfb2 !important;
+}
+footer p {
+  font-family: "Great Vibes", cursive;
+  font-size: 1.3rem;
+}
+footer a {
+  color: #e7dfb2 !important;
 }

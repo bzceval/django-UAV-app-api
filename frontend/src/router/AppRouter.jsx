@@ -6,6 +6,7 @@ import UAVDetail from "../pages/UAVDetail";
 import FindUAV from "../pages/FindUAV";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Footer from "../components/Footer";
 
 const AppRouter = () => {
   return (
@@ -18,6 +19,7 @@ const AppRouter = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
