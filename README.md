@@ -20,7 +20,7 @@ Rent a uav app enables customers to rent autos between start and end date of the
   * React Context API
   * React Router @6.3
   * Toastify
-<br><br><br> 
+<br>
 
 - For BackendEnd;
   * Python
@@ -32,27 +32,28 @@ Rent a uav app enables customers to rent autos between start and end date of the
   * Python Coverage
   * Django Swagger
   * Django Logging
-<br><br><br>   
+<br>   
 
 - For Database;
   * PostgreSQL
   * SQLite
-<br><br><br>
+<br> 
 
-- For Dockerize;
+- Extracts;
   * Docker version 6.3
+  * Git
+  * Github
+  * Scrum
 
 ---
-<br>
-<br><br><br><br><br>
+<br><br><br> 
 
 ## ERD
 
 ![ERD](UavAppERD.png)
 
 
-<br>
-<br><br><br><br><br>
+<br><br><br>
 
 ## BackEnd Tasks
 
