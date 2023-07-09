@@ -21,6 +21,7 @@ Rent a uav app enables customers to rent uavs between start and end date of thei
   - Python Coverage
   - Django Swagger
   - Django Logging
+  - Django Cors Headers
     <br>
 
 - For FrontEnd;
