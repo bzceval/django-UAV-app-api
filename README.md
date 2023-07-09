@@ -6,7 +6,7 @@
 
 # Rent a UAV App
 
-Rent a uav app enables customers to rent autos between start and end date of their reservation.
+Rent a uav app enables customers to rent uavs between start and end date of their reservation.
 
 ## Used Technologies
 
