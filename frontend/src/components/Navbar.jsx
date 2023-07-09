@@ -1,8 +1,12 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import uav from "../assets/uav.png";
+import { useAuthContext } from "../context/AuthContext";
+
 const Navbar = () => {
-  const currentUser = false;
+  const { state, logout } = useAuthContext();
+  const currentUser = state && state.currentUser;
+
   return (
     <header className="py-4">
       <div className="container">
@@ -21,8 +25,10 @@ const Navbar = () => {
           <div className="mt-2">
             {currentUser ? (
               <div className="d-flex flex-row gap-3">
-                <p className="mt-1">{currentUser.displayName || "Guest"}</p>
-                <p className="button">Logout</p>
+                <p className="mt-1">{currentUser}</p>
+                <Link to={logout} className="button">
+                  Logout
+                </Link>
               </div>
             ) : (
               <div className="d-flex gap-3">

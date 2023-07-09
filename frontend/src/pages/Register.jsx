@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import RegisterImg from "../assets/register.svg";
 import * as Yup from "yup";
 import { Formik, ErrorMessage, Form } from "formik";
@@ -22,122 +22,92 @@ export const registerSchema = Yup.object().shape({
 const Register = () => {
   const { register } = useAuthContext();
   const navigate = useNavigate();
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [username, setUsername] = useState();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const values = { firstName, lastName, email, password, username };
+    console.log(values);
+    register(values, navigate);
+  };
+
   return (
     <div className="container my-5">
       <div className="row">
         <div className="col-12 col-md-5 d-flex justify-content-center align-items-center">
           <img src={RegisterImg} alt="UVA Register" width={500} />
         </div>
-        <Formik
-          initialValues={{
-            firstname: "",
-            lastname: "",
-            username: "",
-            email: "",
-            password: "",
-          }}
-          validationSchema={registerSchema}
-          onSubmit={(values, actions) => {
-            actions.resetForm();
-            actions.setSubmitting(false);
-            console.log(values);
-            register({ values }, navigate);
-          }}
-        >
-          {({ values, handleChange, errors, touched, handleBlur }) => (
-            <div className="col-12 col-md-7 d-flex justify-content-center align-items-center">
-              <div className="shadow-lg w-100 p-4">
-                <h1 className="fs-1 display-1 mb-5">Register</h1>
-                <Form>
-                  <div className="mb-4">
-                    <p className="mb-1">First Name:</p>
-                    <input
-                      type="text"
-                      required
-                      name="firstname"
-                      id="firstname"
-                      label="firstname"
-                      value={values.firstname}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <p className="mb-1">Last Name:</p>
-                    <input
-                      type="text"
-                      required
-                      name="lastname"
-                      id="lastname"
-                      label="lastname"
-                      value={values.lastname}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <p className="mb-1">Username:</p>
-                    <input
-                      type="text"
-                      required
-                      name="username"
-                      id="username"
-                      label="Username"
-                      value={values.username}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <p className="mb-1">Email:</p>
-                    <input
-                      required
-                      type="email"
-                      id="email"
-                      label="Email Address"
-                      name="email"
-                      value={values.email}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      helpertext={touched.email && errors.email}
-                      error={touched.email && Boolean(errors.email)}
-                    />
-                    <ErrorMessage
-                      component="span"
-                      name="email"
-                      className="form-error"
-                      style={{ color: "red" }}
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <p className="mb-1">Password:</p>
-                    <input
-                      required
-                      name="password"
-                      label="Password"
-                      type="password"
-                      id="password"
-                      value={values.password}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      helpertext={touched.password && errors.password}
-                      error={
-                        touched.password && Boolean(errors.password)
-                          ? true
-                          : false
-                      }
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <button className="btn button-lr" type="submit">
-                      Register
-                    </button>
-                  </div>
-                </Form>
+        <div className="col-12 col-md-7 d-flex justify-content-center align-items-center">
+          <div className="shadow-lg w-100 p-4">
+            <h1 className="fs-1 display-1 mb-5">Register</h1>
+            <form id="register" onSubmit={handleSubmit}>
+              <div className="mb-4">
+                <p className="mb-1">First Name:</p>
+                <input
+                  type="text"
+                  required
+                  name="firstname"
+                  id="firstname"
+                  label="firstname"
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
               </div>
-            </div>
-          )}
-        </Formik>
+              <div className="mb-4">
+                <p className="mb-1">Last Name:</p>
+                <input
+                  type="text"
+                  required
+                  name="lastname"
+                  id="lastname"
+                  label="lastname"
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+              </div>
+              <div className="mb-4">
+                <p className="mb-1">Username:</p>
+                <input
+                  type="text"
+                  required
+                  name="username"
+                  id="username"
+                  label="Username"
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </div>
+              <div className="mb-4">
+                <p className="mb-1">Email:</p>
+                <input
+                  required
+                  type="email"
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                /> 
+              </div>
+              <div className="mb-4">
+                <p className="mb-1">Password:</p>
+                <input
+                  required
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+              <div className="mb-4">
+                <button className="btn button-lr" type="submit">
+                  Register
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   );

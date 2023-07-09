@@ -31,11 +31,11 @@ const AuthProvider = ({ children }) => {
       console.log(data);
       dispatch({ type: "LOGIN_SUCCESS", payload: data });
       localStorage.setItem("data", JSON.stringify(data));
-        toastSuccessNotify("Login performed");
+      toastSuccessNotify("Login performed");
       navigate("/dashboard");
     } catch (err) {
       dispatch({ type: "FAIL" });
-        toastErrorNotify("Login can not be performed");
+      toastErrorNotify("Login can not be performed");
     }
   };
 
@@ -45,26 +45,26 @@ const AuthProvider = ({ children }) => {
       await axios.post(`${BASE_URL}user/auth/logout/`);
       dispatch({ type: "LOGOUT" });
       localStorage.removeItem("data");
-        toastSuccessNotify("Logout performed");
+      toastSuccessNotify("Logout performed");
       navigate("/");
     } catch (err) {
       dispatch({ type: "FAIL" });
-        toastErrorNotify("Logout can not be performed");
+      toastErrorNotify("Logout can not be performed");
     }
   };
 
   const register = async (userInfo, navigate) => {
     console.log("USERINFO", userInfo);
-    dispatch("START");
+    dispatch({ type: "START" });
     try {
       const { data } = await axios.post(`${BASE_URL}user/create/`, userInfo);
       dispatch({ type: "REGISTER_SUCCESS", payload: data });
       localStorage.setItem("data", JSON.stringify(data));
-        toastSuccessNotify("Register performed");
+      toastSuccessNotify("Register performed");
       navigate("/");
     } catch (err) {
       dispatch({ type: "FAIL" });
-        toastErrorNotify("Register can not be performed");
+      toastErrorNotify("Register can not be performed");
     }
   };
 
