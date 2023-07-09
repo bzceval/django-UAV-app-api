@@ -8,7 +8,6 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const currentUser = state && (state.currentUser || state.token);
-  console.log("NAVBAR SRATE", state);
   const handleLogout = () => {
     logout(navigate);
   };
