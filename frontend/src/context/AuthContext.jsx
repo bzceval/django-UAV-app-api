@@ -10,8 +10,8 @@ export const AuthContext = createContext();
 const { Provider } = AuthContext;
 
 const AuthProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  console.log("state", state);
+  const [state, dispatch] = useReducer(reducer, initialState); 
+  console.log(state)
   useEffect(() => {
     const currentUser = JSON.parse(localStorage.getItem("data")) || "";
     if (currentUser.key || currentUser === "") {

@@ -14,8 +14,7 @@ const UAVProvider = ({ children }) => {
     dispatch({ type: "START" });
     try {
       const { data } = await axios.get(`${BASE_URL}api/${url}/`);
-      dispatch({ type: "UAV_SUCCESS", payload: data });
-      console.log(data);
+      dispatch({ type: "UAV_SUCCESS", payload: data }); 
     } catch (error) {
       dispatch({ type: "UAV_FAIL" });
       console.log(error);

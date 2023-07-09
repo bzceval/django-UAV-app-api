@@ -10,8 +10,7 @@ export const initialState = {
       case "START":
         return { ...state, loading: true };
   
-      case "LOGIN_SUCCESS":
-        console.log("action", action);
+      case "LOGIN_SUCCESS": 
         return {
           ...state,
           currentUser: action.payload.user,

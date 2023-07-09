@@ -1,11 +1,17 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import uav from "../assets/uav.png";
 import { useAuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
   const { state, logout } = useAuthContext();
-  const currentUser = state && state.currentUser;
+  const navigate = useNavigate();
+
+  const currentUser = state && (state.currentUser || state.token);
+  console.log("NAVBAR SRATE", state);
+  const handleLogout = () => {
+    logout(navigate);
+  };
 
   return (
     <header className="py-4">
@@ -26,9 +32,9 @@ const Navbar = () => {
             {currentUser ? (
               <div className="d-flex flex-row gap-3">
                 <p className="mt-1">{currentUser}</p>
-                <Link to={logout} className="button">
+                <button onClick={handleLogout} className="button">
                   Logout
-                </Link>
+                </button>
               </div>
             ) : (
               <div className="d-flex gap-3">
