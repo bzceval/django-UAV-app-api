@@ -25,12 +25,11 @@ const Register = () => {
   return (
     <div className="container my-5">
       <div className="row">
-        <div className="col-12 col-md-6 ">
+        <div className="col-12 col-md-5 d-flex justify-content-center align-items-center">
           <img
             src={RegisterImg}
             alt="UVA Register"
-            width={400}
-            className="mt-5"
+            width={500} 
           />
         </div>
         <Formik
@@ -50,8 +49,8 @@ const Register = () => {
           }}
         >
           {({ values, handleChange, errors, touched, handleBlur }) => (
-            <div className="col-12 col-md-6">
-              <div className="shadow-lg p-4">
+            <div className="col-12 col-md-7 d-flex justify-content-center align-items-center">
+              <div className="shadow-lg w-100 p-4">
                 <h1 className="fs-1 display-1 mb-5">Register</h1>
                 <Form>
                   <div className="mb-4">
