@@ -7,6 +7,8 @@ import FindUAV from "../pages/FindUAV";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Footer from "../components/Footer";
+import Profile from "../pages/Profile";
+import PrivateRouter from "./PrivateRouter";
 
 const AppRouter = () => {
   return (
@@ -14,10 +16,13 @@ const AppRouter = () => {
       <Navbar />
       <Routes>
         <Route index element={<UAV />} />
-        <Route path="/detail" element={<UAVDetail />} />
-        <Route path="/search-uav" element={<FindUAV />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<Profile />} />
+        <Route path="/detail/:id" element={<PrivateRouter />}>
+          <Route path="" element={<UAVDetail />} />
+        </Route>
+        <Route path="/search-uav" element={<FindUAV />} />
       </Routes>
       <Footer />
     </BrowserRouter>
