@@ -78,7 +78,8 @@ Rent a uav app enables customers to rent uavs between start and end date of thei
 ---
 
 ## FrontEnd Tasks
-
+- There are Login, Logout UAV listing, UAV Search and Filtering, UAV Detail and profile pages.
+- 
 ---
 **<p align="center">&#9786; Happy Coding! &#9997;</p>**
 
