@@ -1,9 +1,13 @@
-<center><h1> Django & React UAV Projects</h1></center>  
+<center><h1> Django & React UAV Projects</h1></center>
+
+![UAV](uav.png)
+
+<br>
 
 # Rent a UAV App
 
 Rent a uav app enables customers to rent uavs between start and end date of their reservation.
-![UAV](uav.png)
+
 ## Used Technologies
 
 - For BackendEnd;
