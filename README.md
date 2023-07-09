@@ -45,7 +45,6 @@ Rent a uav app enables customers to rent uavs between start and end date of thei
   * Github
   * Scrum
 
----
 <br><br><br> 
 
 ## ERD
@@ -80,6 +79,7 @@ Rent a uav app enables customers to rent uavs between start and end date of thei
 
 ## FrontEnd Tasks
 
+---
 **<p align="center">&#9786; Happy Coding! &#9997;</p>**
 
 <p>Busra Ceval</p>
