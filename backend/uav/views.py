@@ -5,6 +5,7 @@ from .serializers import (
     Uav, UavSerializer,
     Reservation, ReservationSerializer,
 )
+from rest_framework.filters import SearchFilter, OrderingFilter
 
 # ---------------------------------
 # FixView
@@ -21,8 +22,9 @@ class UavView(FixView):
     queryset = Uav.objects.filter(availability=True)
     serializer_class = UavSerializer
     permission_classes = [IsStaffOrReadOnly]
-    filterset_fields = ['brand', 'model', 'id'] # filter by id, brand and model
-
+    filterset_fields = ['brand', 'model', 'id'] # filtering by id, brand and model
+    search_fields = ['brand', 'model'] # searching in brand and model
+    
     def get_queryset(self):
         if self.request.user.is_staff:
             queryset = Uav.objects.all() # If user.is_staff show all data.
