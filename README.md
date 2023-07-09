@@ -46,7 +46,7 @@ Rent a uav app enables customers to rent uavs between start and end date of thei
     <br>
 
 - Extracts;
-  - Docker version 6.3
+  - Docker version 3.9
   - Git
   - Github
   - Scrum
