@@ -1,7 +1,5 @@
-<center><h1> Django UAV Projects</h1></center> 
-## ERD
-
-![ERD](UavAppERD.png)
+<center><h1> Django UAV Projects</h1></center>  
+![UAV](uav.png)
 <br>
 
 # Rent a UAV App
