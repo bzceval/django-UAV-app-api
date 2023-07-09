@@ -15,7 +15,7 @@ const Login = () => {
       password: data.get("password"),
       username: data.get("username"),
     };
-    login(userInfo, navigate('/profile'));
+    login(userInfo, navigate("/profile"));
   };
   return (
     <div className="container my-5">
@@ -26,7 +26,13 @@ const Login = () => {
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <p className="mb-1">Username:</p>
-                <input type="text" />
+                <input
+                  type="text"
+                  id="username"
+                  label="Username"
+                  name="username"
+                  required
+                />
               </div>
               <div className="mb-4">
                 <p className="mb-1">Email:</p>
@@ -35,6 +41,7 @@ const Login = () => {
                   id="email"
                   label="Email Address"
                   name="email"
+                  required
                 />
               </div>
               <div className="mb-4">
@@ -44,6 +51,7 @@ const Login = () => {
                   label="Password"
                   type="password"
                   id="password"
+                  required
                 />
               </div>
               <div className="mb-4">
