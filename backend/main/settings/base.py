@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'dj_rest_auth',
     'drf_yasg',
+    'django_filters'
      # Apps:
     'user', 
     'uav',
@@ -139,4 +140,8 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAdminUser'],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 2,
-}
+    # GLOBAL FILTER
+    'DEFAULT_FILTER_BACKENDS': [
+      'django_filters.rest_framework.DjangoFilterBackend', 
+    ]
+} 
