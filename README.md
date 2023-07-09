@@ -1,4 +1,4 @@
-<center><h1> Django UAV Projects</h1></center>  
+<center><h1> Django & React UAV Projects</h1></center>  
 
 ![UAV](uav.png)
 
